@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NTodo } from '../../modelos/todo.modelos';
 @Component({
   selector: 'app-todo',
@@ -9,4 +9,5 @@ import { NTodo } from '../../modelos/todo.modelos';
 })
 export class TodoComponent {
   @Input({required : true}) todoData!: NTodo.TodoData;
+  @Output() OnClickIcon = new EventEmitter<NTodo.TodoData>();
 }
