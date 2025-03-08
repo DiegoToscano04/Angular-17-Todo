@@ -1,6 +1,13 @@
 <div
     class="card-container"
+    [ngClass]="{        
+        first: first,        
+        last: last,
+        even: even,
+        odd: odd
+    }"
 >
+@if (todoData){
     <span class="icon-close" (click)="OnClickIcon.emit(todoData)">x</span>
     <div class="card-body">
         <div class="card-content">
@@ -9,17 +16,35 @@
         </div>
     </div>
     <div class="card-content pills-container">
-        <p>Estado: 
-            <span
-                class="status"
-            >
+        <p>Estado:
+            @switch (todoData.class.status) {
+                @case ('to-do') {
+                    <span
+                    class="status to-do" 
+                    >
                     {{todoData.status}}
-            </span>
-            
+                    </span>
+                }
+                @case ('in-progress') {
+                    <span
+                    class="status in-progress" 
+                    >
+                    {{todoData.status}}
+                    </span>
+                }
+                @default {
+                    <span
+                    class="status"
+                    >
+                    {{todoData.status}}
+                    </span>
+                } 
+            }
         </p>
         <p>Prioridad:
             <span
                 class="priority"
+                [ngStyle]="{'background-color': todoData.color.priority}"
             >
             {{todoData.priority}}
             </span>
@@ -32,5 +57,8 @@
             </div>
         </div>
         <span>{{todoData.progress}} %</span>
-    </section>           
+    </section>
+} @else {
+    <h3>No hay datos</h3>
+}
 </div>

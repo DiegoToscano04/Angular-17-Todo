@@ -16,7 +16,8 @@
 }
 
 .card-container.first .card-body {
-    border-bottom: 2px solid #f2c8e0;
+    border-bottom: 2px solid #ff00ea;
+    background-color: rgb(54, 231, 255);
 }
 
 .card-container.last .card-body {
@@ -43,6 +44,10 @@
 
 .card-container .pills-container {
     margin-bottom: 1rem;
+}
+.card-container.first .pills-container {
+    margin-bottom: 1rem;
+    background-color: rgb(54, 231, 255);
 }
 
 .card-container .pills-container span {

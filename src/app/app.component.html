@@ -1,2 +1,23 @@
-<app-todo [todoData]="todoData1" (OnClickIcon)="getTodoInfo($event)"></app-todo>
-<app-todo [todoData]="todoData2" (OnClickIcon)="getTodoInfo($event)"></app-todo>
+<div class="todo-container">
+
+<app-todo *ngFor="
+let todo of todoData;
+let i = index;
+trackBy: trackById;
+let f = first;
+let l = last;
+let e = even;
+let o = odd;
+
+"
+ [todoData]="todo" 
+ [first]="f"
+ [last]="l"
+ [even]="e"
+ [odd]="o"  
+ (OnClickIcon)="getTodoInfo($event)"
+ >
+ </app-todo>
+</div>
+
+<button (click)="OrderData()">Ordenar por Prioridad</button>
